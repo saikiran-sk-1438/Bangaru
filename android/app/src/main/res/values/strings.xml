@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Panthulu Presentation</string>
+    <string name="title_activity_main">Panthulu Presentation</string>
+    <string name="package_name">com.panthulu.presentation</string>
+    <string name="custom_url_scheme">com.panthulu.presentation</string>
+</resources>

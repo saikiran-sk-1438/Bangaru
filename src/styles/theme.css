@@ -1,0 +1,350 @@
+/* ==========================================================================
+   DESIGN SYSTEM - BANGARU VEDIC CALENDAR (DESIGN.md STITCH COMPLIANT)
+   
+   COLOR PALETTE:
+   - Obsidian:       #0B0A08
+   - Deep Charcoal:  #171511
+   - Dark Mocha:     #29231A
+   - Antique Gold:   #9A7628
+   - Signature Gold: #C6A15B
+   - Champagne Gold: #E2C98B
+   - Soft Ivory:     #F5F0E6
+   - Pure Highlight: #FFF8E8
+   ========================================================================== */
+
+:root {
+  --obsidian: #0B0A08;
+  --deep-charcoal: #171511;
+  --dark-mocha: #29231A;
+  --antique-gold: #9A7628;
+  --signature-gold: #C6A15B;
+  --champagne-gold: #E2C98B;
+  --soft-ivory: #F5F0E6;
+  --pure-highlight: #FFF8E8;
+
+  --gold-primary: var(--signature-gold);
+  --gold-light: var(--champagne-gold);
+  --gold-dark: var(--antique-gold);
+  --gold-glow: rgba(198, 161, 91, 0.35);
+
+  --bg-sanctum: var(--obsidian);
+  --bg-card: var(--deep-charcoal);
+  --bg-card-hover: var(--dark-mocha);
+  --bg-input: #000000;
+
+  --border-gold: rgba(154, 118, 40, 0.4);
+  --border-gold-bright: var(--signature-gold);
+
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-telugu: 'Noto Sans Telugu', sans-serif;
+
+  --text-main: var(--soft-ivory);
+  --text-gold: var(--champagne-gold);
+  --text-highlight: var(--pure-highlight);
+  --text-muted: #B0A696;
+
+  --grad-gold: linear-gradient(135deg, #E2C98B 0%, #C6A15B 50%, #9A7628 100%);
+  --grad-gold-text: linear-gradient(135deg, #FFF8E8 0%, #E2C98B 45%, #C6A15B 100%);
+  --grad-sanctum: radial-gradient(circle at 50% 0%, rgba(198, 161, 91, 0.15) 0%, rgba(23, 21, 17, 0.95) 50%, #0B0A08 100%);
+}
+
+/* NOBLE PARCHMENT LIGHT THEME (Authentic Temple Palm-Leaf Aesthetic) */
+[data-theme="parchment"] {
+  --bg-sanctum: #F7F3E9;
+  --bg-card: #FFFDF7;
+  --bg-card-hover: #F2EBDC;
+  --bg-input: #FFFFFF;
+  --border-gold: rgba(184, 134, 11, 0.35);
+  --border-gold-bright: #B8860B;
+  --text-main: #2A2215;
+  --text-muted: #6E6250;
+  --text-gold: #996515;
+  --text-highlight: #1C160E;
+  --signature-gold: #B8860B;
+  --champagne-gold: #8B6508;
+  --pure-highlight: #1C160E;
+  --dark-mocha: #EFE7D5;
+  --grad-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #8B6508 100%);
+  --grad-gold-text: linear-gradient(135deg, #4A3308 0%, #8B6508 50%, #B8860B 100%);
+  --grad-sanctum: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.22) 0%, rgba(247, 243, 233, 0.95) 60%, #F7F3E9 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background-color: var(--bg-sanctum);
+  background-image: var(--grad-sanctum);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.3px;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  font-weight: 600;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-sanctum);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--antique-gold);
+  border-radius: 4px;
+}
+
+.font-telugu {
+  font-family: var(--font-telugu);
+}
+
+.text-gold-gradient {
+  background: var(--grad-gold-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Elevated Glassmorphic Cards & Tactile Buttons */
+.gold-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(11, 10, 8, 0.2);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.gold-card:hover {
+  border-color: var(--border-gold-bright);
+  box-shadow: 0 12px 30px rgba(198, 161, 91, 0.15);
+}
+
+.gold-button-primary {
+  background: var(--grad-gold);
+  color: #000;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  min-height: 42px;
+  padding: 8px 18px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 18px rgba(184, 134, 11, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gold-button-primary:hover {
+  box-shadow: 0 6px 24px rgba(198, 161, 91, 0.5);
+}
+
+.gold-button-primary:active {
+  transform: scale(0.96);
+}
+
+.gold-button-secondary {
+  background: var(--dark-mocha);
+  color: var(--text-main);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  min-height: 40px;
+  padding: 7px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.gold-button-secondary:hover {
+  border-color: var(--signature-gold);
+  background: rgba(198, 161, 91, 0.15);
+}
+
+.gold-button-secondary:active {
+  transform: scale(0.96);
+}
+
+.kumkuma-badge {
+  background: var(--dark-mocha);
+  color: var(--champagne-gold);
+  border: 1px solid var(--antique-gold);
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.saffron-badge {
+  background: var(--antique-gold);
+  color: #FFF;
+  border: 1px solid var(--signature-gold);
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Diya Flame Flicker Animation */
+@keyframes diyaFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    filter: drop-shadow(0 0 8px var(--signature-gold));
+  }
+  50% {
+    transform: scale(1.08) rotate(1deg);
+    filter: drop-shadow(0 0 18px var(--champagne-gold));
+  }
+}
+
+.diya-flame {
+  animation: diyaFlicker 2.5s infinite ease-in-out;
+}
+
+/* INSTAGRAM-STYLE BOTTOM NAVIGATION BAR */
+.instagram-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 66px;
+  background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border-gold-bright);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 0 4px;
+  padding-bottom: max(4px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.insta-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 100%;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.insta-nav-item.active {
+  color: var(--champagne-gold);
+  font-weight: 700;
+}
+
+.insta-nav-item:active {
+  transform: scale(0.92);
+}
+
+/* Instagram-style Elevated Plus (+) Button in Center */
+.insta-plus-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--grad-gold);
+  color: #000;
+  border: 3px solid var(--bg-sanctum);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -16px auto 0;
+  box-shadow: 0 8px 24px rgba(184, 134, 11, 0.6);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.insta-plus-btn:hover {
+  transform: scale(1.06);
+  margin-top: -16px;
+  box-shadow: 0 10px 30px rgba(198, 161, 91, 0.8);
+}
+
+.insta-plus-btn:active {
+  transform: scale(0.92);
+}
+
+/* Overlays & Action Sheets */
+.insta-action-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.insta-action-sheet {
+  background: var(--bg-card);
+  border-top: 2px solid var(--signature-gold);
+  border-radius: 24px 24px 0 0;
+  padding: 22px 18px 38px;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
